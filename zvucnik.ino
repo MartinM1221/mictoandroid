@@ -3,8 +3,8 @@
 #include <math.h> // For sqrt in RMS calculation
 
 // --- Wi-Fi Settings ---
-const char* ssid = "HT_291847";         // Replace
-const char* password = "67960214089161444754"; // Replace
+const char* ssid = "//";         // Replace
+const char* password = "//"; // Replace
 
 // --- Network Settings ---
 #define PORT_SEND_AUDIO    8080 // Port ESP32 sends INMP441 data FROM (DISABLED FOR TEST)
