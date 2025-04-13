@@ -2,8 +2,8 @@
 #include "driver/i2s.h"
 
 // --- Wi-Fi Settings ---
-const char* ssid = "";         // Replace with your Wi-Fi network name
-const char* password = ""; // Replace with your Wi-Fi password
+const char* ssid = "//";         // Replace with your Wi-Fi network name
+const char* password = "//"; // Replace with your Wi-Fi password
 
 // --- I2S Pin Configuration ---
 #define I2S_WS_PIN   15  // Word Select (L/R Clock) - Connect to INMP441 WS
