@@ -6,20 +6,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"> {/* Ensure your package name matches here */}
 
     <EditText
-        android:id="@+id/editTextEspMicSenderIpAddress" android:layout_width="match_parent"
+        android:id="@+id/editTextEspMicSenderIpAddress"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="ESP32 Mic Sender IP (Port 8080)"
-        android:inputType="phone" />
+        android:inputType="phone"
+        android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/editTextEspSpeakerReceiverIpAddress" android:layout_width="match_parent"
+        android:id="@+id/editTextEspSpeakerReceiverIpAddress"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:hint="ESP32 Speaker Receiver IP (Port 8081)"
-        android:inputType="phone" />
+        android:hint="ESP32 Speaker Receiver IP (Port 8081/8082)"
+        android:inputType="phone"
+        android:importantForAutofill="no" />
 
     <Button
         android:id="@+id/buttonStartStopAll"
@@ -28,7 +32,13 @@
         android:layout_marginTop="16dp"
         android:text="Start Both Streams" />
 
-    <TextView
+    <Button
+        android:id="@+id/buttonPlayMelody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Play Soothing Melody"
+        android:enabled="false" /> <TextView
         android:id="@+id/textViewStatusReceive"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,5 +53,64 @@
         android:layout_marginTop="8dp"
         android:text="Sending (Phone Mic): Idle"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    <TextView
+        android:id="@+id/textViewMelodyStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Melody: Idle"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    <TextView
+        android:id="@+id/textViewControlStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Control: Disconnected"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Servo 1 Angle:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    <SeekBar
+        android:id="@+id/seekBarServo1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="180"
+        android:progress="90"
+        android:layout_marginTop="8dp"
+        android:enabled="false"/> <TextView
+        android:id="@+id/textViewServo1Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="90" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Servo 2 Angle:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    <SeekBar
+        android:id="@+id/seekBarServo2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="180"
+        android:progress="90"
+        android:layout_marginTop="8dp"
+        android:enabled="false"/> <TextView
+        android:id="@+id/textViewServo2Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="90" />
 
 </LinearLayout>
