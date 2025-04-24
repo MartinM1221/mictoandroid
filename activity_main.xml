@@ -1,18 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".MainActivity"> {/* Ensure your package name matches here */}
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Camera Stream:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    <WebView
+        android:id="@+id/cameraWebView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+    android:layout_marginTop="8dp"
+    android:background="#CCCCCC"  />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Camera Zoom:" />
+
+    <SeekBar
+        android:id="@+id/zoomSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="200"
+    android:layout_marginTop="4dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Connections &amp; Audio:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
     <EditText
         android:id="@+id/editTextEspMicSenderIpAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="ESP32 Mic Sender IP (Port 8080)"
+        android:layout_marginTop="8dp"
+        android:hint="ESP32 Mic Sender IP (e.g., 192.168.1.100)"
         android:inputType="phone"
         android:importantForAutofill="no" />
 
@@ -21,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:hint="ESP32 Speaker Receiver IP (Port 8081/8082)"
+        android:hint="ESP32 Speaker/Control IP (e.g., 192.168.1.101)"
         android:inputType="phone"
         android:importantForAutofill="no" />
 
@@ -30,53 +68,62 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Start Both Streams" />
+        android:text="Start Audio/Control Streams" />
 
     <Button
         android:id="@+id/buttonPlayMelody"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Play Soothing Melody"
-        android:enabled="false" /> <TextView
+        android:enabled="false" />
+
+    <TextView
         android:id="@+id/textViewStatusReceive"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Receiving (ESP32 Mic): Idle"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
     <TextView
         android:id="@+id/textViewStatusSend"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="Sending (Phone Mic): Idle"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
 
     <TextView
         android:id="@+id/textViewMelodyStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="Melody: Idle"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
 
     <TextView
         android:id="@+id/textViewControlStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:text="Control: Disconnected"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
 
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Servo Control:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Servo 1 Angle:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+        android:layout_marginTop="8dp"
+        android:text="Servo 1 Angle:" />
 
     <SeekBar
         android:id="@+id/seekBarServo1"
@@ -84,8 +131,9 @@
         android:layout_height="wrap_content"
         android:max="180"
         android:progress="90"
-        android:layout_marginTop="8dp"
-        android:enabled="false"/> <TextView
+        android:layout_marginTop="4dp"
+        android:enabled="false"/>
+    <TextView
         android:id="@+id/textViewServo1Value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -96,8 +144,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Servo 2 Angle:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+        android:text="Servo 2 Angle:" />
 
     <SeekBar
         android:id="@+id/seekBarServo2"
@@ -105,8 +152,9 @@
         android:layout_height="wrap_content"
         android:max="180"
         android:progress="90"
-        android:layout_marginTop="8dp"
-        android:enabled="false"/> <TextView
+        android:layout_marginTop="4dp"
+        android:enabled="false"/>
+    <TextView
         android:id="@+id/textViewServo2Value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -114,3 +162,4 @@
         android:text="90" />
 
 </LinearLayout>
+    </ScrollView>
