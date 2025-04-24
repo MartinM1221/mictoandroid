@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Camera Stream:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    <WebView
+        android:id="@+id/cameraWebView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+    android:layout_marginTop="8dp"
+    android:background="#CCCCCC"  />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Camera Zoom:" />
+
+    <SeekBar
+        android:id="@+id/zoomSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="200"
+    android:layout_marginTop="4dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Connections &amp; Audio:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    <EditText
+        android:id="@+id/editTextEspMicSenderIpAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="ESP32 Mic Sender IP (e.g., 192.168.1.100)"
+        android:inputType="phone"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/editTextEspSpeakerReceiverIpAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="ESP32 Speaker/Control IP (e.g., 192.168.1.101)"
+        android:inputType="phone"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/buttonStartStopAll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Start Audio/Control Streams" />
+
+    <Button
+        android:id="@+id/buttonPlayMelody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Play Soothing Melody"
+        android:enabled="false" />
+
+    <TextView
+        android:id="@+id/textViewStatusReceive"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Receiving (ESP32 Mic): Idle"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+    <TextView
+        android:id="@+id/textViewStatusSend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Sending (Phone Mic): Idle"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+
+    <TextView
+        android:id="@+id/textViewMelodyStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Melody: Idle"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+
+    <TextView
+        android:id="@+id/textViewControlStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Control: Disconnected"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Servo Control:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Servo 1 Angle:" />
+
+    <SeekBar
+        android:id="@+id/seekBarServo1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="180"
+        android:progress="90"
+        android:layout_marginTop="4dp"
+        android:enabled="false"/>
+    <TextView
+        android:id="@+id/textViewServo1Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="90" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Servo 2 Angle:" />
+
+    <SeekBar
+        android:id="@+id/seekBarServo2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="180"
+        android:progress="90"
+        android:layout_marginTop="4dp"
+        android:enabled="false"/>
+    <TextView
+        android:id="@+id/textViewServo2Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="90" />
+
+</LinearLayout>
+    </ScrollView>
